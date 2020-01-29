@@ -953,10 +953,11 @@ $(window).on('load', function() {
   /**
   * Adds a button
   */
+  function addButton() {
     L.easyButton('fa-gift', function(){
     window.location.href = NEW_DOCS_LOCATION;
     }).addTo(map);
-  
+  }
   /**
    * Returns the value of a setting s
    * getSetting(s) is equivalent to documentSettings[constants.s]
