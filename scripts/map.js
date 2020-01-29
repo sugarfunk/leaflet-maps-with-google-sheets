@@ -614,7 +614,6 @@ $(window).on('load', function() {
 
     document.title = getSetting('_mapTitle');
     addBaseMap();
-    addWatermark();
 
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
@@ -935,7 +934,7 @@ $(window).on('load', function() {
     L.Control.Watermark = L.Control.extend({
     onAdd: function(map) {
         var img = L.DomUtil.create('img');
-        img.src = '/markers/Untitled.png';
+        img.src = '../../markers/Untitled.png';
         img.style.width = '200px';
         return img;
     },
