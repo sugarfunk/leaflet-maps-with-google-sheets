@@ -136,7 +136,7 @@ $(window).on('load', function() {
 
         markerArray.push(marker);
 		marker.on('mouseover', function(event){
-		.openPopup();
+		marker.openPopup();
 		});
 
 		marker.on('mouseout', function(event){
