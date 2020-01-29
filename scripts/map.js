@@ -936,7 +936,7 @@ $(window).on('load', function() {
     onAdd: function(map) {
     var img = L.DomUtil.create('img');
       img.src = 'scripts/f3.png';
-      img.style.width = '200px';
+      img.style.width = '120px';
       return img;
     },
     onRemove: function(map) {
