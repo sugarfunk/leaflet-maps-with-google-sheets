@@ -615,7 +615,6 @@ $(window).on('load', function() {
     document.title = getSetting('_mapTitle');
     addBaseMap();
     addWatermark();
-    addButton();
     
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
@@ -703,7 +702,9 @@ $(window).on('load', function() {
           + '"></i>';
       $(this).prepend(legendIcon);
     });
-
+    
+    addButton();
+    
     // When all processing is done, hide the loader and make the map visible
     showMap();
 
