@@ -615,11 +615,8 @@ $(window).on('load', function() {
     document.title = getSetting('_mapTitle');
     addBaseMap();
     addWatermark();
+    addButton();
     
-    L.easyButton('fa-gift', function(){
-    window.location.href = NEW_DOCS_LOCATION;
-    }).addTo(map);
-
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
     var layers;
@@ -953,6 +950,12 @@ $(window).on('load', function() {
     L.control.watermark({ position: 'bottomleft' }).addTo(map);
   }
   
+  /**
+  * Adds a button
+  */
+    L.easyButton('fa-gift', function(){
+    window.location.href = NEW_DOCS_LOCATION;
+    }).addTo(map);
   
   /**
    * Returns the value of a setting s
