@@ -614,6 +614,7 @@ $(window).on('load', function() {
 
     document.title = getSetting('_mapTitle');
     addBaseMap();
+	addWatermark();
 
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
@@ -933,17 +934,17 @@ $(window).on('load', function() {
   function addWatermark() {
     L.Control.Watermark = L.Control.extend({
     onAdd: function(map) {
-        var img = L.DomUtil.create('img');
-        img.src = 'https://github.com/sugarfunk/leaflet-maps-with-google-sheets/blob/master/markers/Untitled.png';
-        img.style.width = '200px';
-        return img;
+    var img = L.DomUtil.create('img');
+      img.src = 'https://github.com/sugarfunk/leaflet-maps-with-google-sheets/blob/master/markers/Untitled.png';
+      img.style.width = '200px';
+      return img;
     },
     onRemove: function(map) {
         // Nothing to do here
     }
     });
     L.control.watermark = function(opts) {
-        return new L.Control.Watermark(opts);
+      return new L.Control.Watermark(opts);
     }
     L.control.watermark({ position: 'bottomleft' }).addTo(map);
   }
