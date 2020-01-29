@@ -614,6 +614,7 @@ $(window).on('load', function() {
 
     document.title = getSetting('_mapTitle');
     addBaseMap();
+    addWatermark();
 
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
@@ -926,7 +927,29 @@ $(window).on('load', function() {
       position: trySetting('_mapAttribution', 'bottomright')
     }).addTo(map);
   }
-
+  
+  /**
+  * Adds the watermark
+  */
+  function addWatermark() {
+    L.Control.Watermark = L.Control.extend({
+    onAdd: function(map) {
+        var img = L.DomUtil.create('img');
+        img.src = '/markers/Untitled.png';
+        img.style.width = '200px';
+        return img;
+    },
+    onRemove: function(map) {
+        // Nothing to do here
+    }
+    });
+    L.control.watermark = function(opts) {
+        return new L.Control.Watermark(opts);
+    }
+    L.control.watermark({ position: 'bottomleft' }).addTo(map);
+  }
+  
+  
   /**
    * Returns the value of a setting s
    * getSetting(s) is equivalent to documentSettings[constants.s]
