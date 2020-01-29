@@ -615,6 +615,7 @@ $(window).on('load', function() {
     document.title = getSetting('_mapTitle');
     addBaseMap();
     addWatermark();
+    map.scrollWheelZoom.enable();
     
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
