@@ -646,11 +646,28 @@ $(window).on('load', function() {
 
     // Add Nominatim Search control
     if (getSetting('_mapSearch') !== 'off') {
-      var map = L.map('map').setView([0, 0], 2);
-      L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      var geocoder = L.Control.geocoder({
+        expand: 'click',
+        position: getSetting('_mapSearch'),
+        geocoder: new L.Control.Geocoder.Nominatim({
+          geocodingQueryParams: {
+            viewbox: [],  // by default, viewbox is empty
+            bounded: 0,
+          }
+        }),
       }).addTo(map);
-      L.Control.geocoder().addTo(map);
+
+      function updateGeocoderBounds() {
+        var bounds = map.getBounds();
+        var mapBounds = [
+          bounds._southWest.lat, bounds._northEast.lat,
+          bounds._southWest.lng, bounds._northEast.lng,
+        ];
+        geocoder.options.geocoder.options.geocodingQueryParams.viewbox = mapBounds;
+      }
+
+      // Update search viewbox coordinates every time the map moves
+      map.on('moveend', updateGeocoderBounds);
     }
 
     // Add location control
