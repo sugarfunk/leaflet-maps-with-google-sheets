@@ -135,10 +135,14 @@ $(window).on('load', function() {
         }
 
         markerArray.push(marker);
-		
-		marker.on('mouseover',function(ev) {
-		marker.openPopup();
-    });
+		marker.on('mouseover', function(event){
+		.openPopup();
+		});
+
+		marker.on('mouseout', function(event){
+		marker.closePopup();
+		});
+
       }
     }
 
