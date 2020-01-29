@@ -615,6 +615,10 @@ $(window).on('load', function() {
     document.title = getSetting('_mapTitle');
     addBaseMap();
     addWatermark();
+    
+    L.easyButton('fa-gift', function(){
+    window.location.href = NEW_DOCS_LOCATION;
+    }).addTo(map);
 
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
