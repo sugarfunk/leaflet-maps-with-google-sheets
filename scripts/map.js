@@ -935,7 +935,7 @@ $(window).on('load', function() {
     L.Control.Watermark = L.Control.extend({
     onAdd: function(map) {
     var img = L.DomUtil.create('img');
-      img.src = '/../../f3.png';
+      img.src = 'scripts/f3.png';
       img.style.width = '200px';
       return img;
     },
