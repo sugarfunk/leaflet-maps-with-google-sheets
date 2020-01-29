@@ -935,7 +935,7 @@ $(window).on('load', function() {
     L.Control.Watermark = L.Control.extend({
     onAdd: function(map) {
     var img = L.DomUtil.create('img');
-      img.src = 'https://i1.wp.com/f3nation.com/wp-content/uploads/2018/12/cropped-f3_2000x2000_circle.png';
+      img.src = '/f3.png';
       img.style.width = '200px';
       return img;
     },
