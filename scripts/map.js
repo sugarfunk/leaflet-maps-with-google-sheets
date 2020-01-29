@@ -129,20 +129,20 @@ $(window).on('load', function() {
           .bindPopup("<h3>" + point['Name'] + '</h3><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           "<b>Region:</b>" + point['Region'] + "<br>" + point['Description']);
-
+		
+		marker.on('mouseover', function (e) {
+		this.openPopup();
+		});
+		marker.on('click', function (e) {
+		this.closePopup();
+			//disable mouseout behavior here?
+		});
+		
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
         }
 
         markerArray.push(marker);
-		marker.on('mouseover', function(event){
-		marker.openPopup();
-		});
-
-		marker.on('mouseout', function(event){
-		marker.closePopup();
-		});
-
       }
     }
 
