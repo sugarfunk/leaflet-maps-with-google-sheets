@@ -116,7 +116,8 @@ $(window).on('load', function() {
         ? L.icon({
           iconUrl: point['Marker Icon'],
           iconSize: size,
-          iconAnchor: anchor
+          iconAnchor: anchor,
+          popupAnchor: [-15,-10]
         })
         : createMarkerIcon(point['Marker Icon'],
           'fa',
@@ -129,7 +130,7 @@ $(window).on('load', function() {
           .bindPopup("<h3>" + point['Name'] + '</h3><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           "<b>Region:</b>" + point['Region'] + "<br>" + point['Description']);
-		
+
 		marker.on('mouseover', function (e) {
 		this.openPopup();
 		});
@@ -137,7 +138,7 @@ $(window).on('load', function() {
 		this.closePopup();
 			//disable mouseout behavior here?
 		});
-		
+
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
         }
@@ -624,7 +625,7 @@ $(window).on('load', function() {
     addBaseMap();
     addWatermark();
     map.scrollWheelZoom.enable();
-    
+
     // Add point markers to the map
     var points = mapData.sheets(constants.pointsSheetName);
     var layers;
@@ -711,9 +712,9 @@ $(window).on('load', function() {
           + '"></i>';
       $(this).prepend(legendIcon);
     });
-    
+
     addButton();
-    
+
     // When all processing is done, hide the loader and make the map visible
     showMap();
 
@@ -938,7 +939,7 @@ $(window).on('load', function() {
       position: trySetting('_mapAttribution', 'bottomright')
     }).addTo(map);
   }
-  
+
   /**
   * Adds the watermark
   */
@@ -959,7 +960,7 @@ $(window).on('load', function() {
     }
     L.control.watermark({ position: 'bottomleft' }).addTo(map);
   }
-  
+
   /**
   * Adds a button
   */
