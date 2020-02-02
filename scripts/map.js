@@ -116,8 +116,8 @@ $(window).on('load', function() {
         ? L.icon({
           iconUrl: point['Marker Icon'],
           iconSize: size,
-          iconAnchor: anchor,
-          popupAnchor: [-15,-10]
+          iconAnchor: [20,53],
+          popupAnchor: [-1,-10]
         })
         : createMarkerIcon(point['Marker Icon'],
           'fa',
@@ -149,18 +149,30 @@ $(window).on('load', function() {
 
     var group = L.featureGroup(markerArray);
     var clusters = (getSetting('_markercluster') === 'on') ? true : false;
+    var mcGroup = L.markerClusterGroup({
+	     spiderfyOnMaxZoom: true,
+	     showCoverageOnHover: false,
+	     zoomToBoundsOnClick: true,
+     });
 
     // if layers.length === 0, add points to map instead of layer
     if (layers === undefined || layers.length === 0) {
       map.addLayer(
         clusters
-        ? L.markerClusterGroup(spiderfyDistanceMultiplier=10).addLayer(group).addTo(map)
+        ? mcGroup.addLayer(group).addTo(map)
         : group
       );
     } else {
       if (clusters) {
         // Add multilayer cluster support
-        multilayerClusterSupport = L.markerClusterGroup.layerSupport();
+        multilayerClusterSupport = L.markerClusterGroup.layerSupport({
+    	     spiderfyOnMaxZoom: true,
+    	     showCoverageOnHover: true,
+    	     zoomToBoundsOnClick: true,
+           spiderfyDistanceMultiplier: 5,
+           removeOutsideVisibleBounds:true,
+           animate: true
+         });
         multilayerClusterSupport.addTo(map);
 
         for (i in layers) {
