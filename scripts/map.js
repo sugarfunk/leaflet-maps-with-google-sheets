@@ -175,6 +175,12 @@ $(window).on('load', function() {
          });
         multilayerClusterSupport.addTo(map);
 
+        // multilayerClusterSupport.on('clustermouseover', function(a) {
+        //   if (layers.length < 10){
+        //   a.layer.spiderfy();
+        //   }
+        // });
+
         for (i in layers) {
           multilayerClusterSupport.checkIn(layers[i]);
           layers[i].addTo(map);
