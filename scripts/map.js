@@ -32,20 +32,28 @@ $(window).on('load', function() {
     var lon = map.getCenter().lng, lonSet = false;
     var zoom = 12, zoomSet = false;
     var center;
+    var params = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+      params[key] = value;
+    });
 
-    if (getSetting('_initLat') !== '') {
-      lat = getSetting('_initLat');
-      latSet = true;
-    }
+    if (Object.keys(params).length !== 0){
+        if (params.lat !== 'undefined') {
+          console.log("I did it.");
+          lat = parseInt(params.lat);
+          console.log(Object.prototype.toString.call(lat));
+          latSet = true;
+        }
 
-    if (getSetting('_initLon') !== '') {
-      lon = getSetting('_initLon');
-      lonSet = true;
-    }
+        if (params.lon !== 'undefined') {
+          lon = params.lon;
+          lonSet = true;
+        }
 
-    if (getSetting('_initZoom') !== '') {
-      zoom = parseInt(getSetting('_initZoom'));
-      zoomSet = true;
+        if (params.zoom !== 'undefined') {
+          zoom = params.zoom;
+          zoomSet = true;
+        }
     }
 
     if ((latSet && lonSet) || !points) {
