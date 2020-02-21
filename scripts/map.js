@@ -198,7 +198,7 @@ $(window).on('load', function() {
       var pos = (getSetting('_pointsLegendPos') == 'off')
         ? 'topleft'
         : getSetting('_pointsLegendPos');
-
+/*
       if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
           var pointsLegend = L.control.layers(null, layers, {
             collapsed: true,
@@ -209,6 +209,12 @@ $(window).on('load', function() {
             position: pos,
         });
       }
+*/
+      var pointsLegend = L.control.layers(null, layers, {
+          collapsed: true,
+          position: pos,
+      });
+
       if (getSetting('_pointsLegendPos') !== 'off') {
         //console.log(pointsLegend)
         pointsLegend.addTo(map);
@@ -744,7 +750,7 @@ $(window).on('load', function() {
       $(this).prepend(legendIcon);
     });
 
-    addButton();
+    /*addButton();*/
 
     // When all processing is done, hide the loader and make the map visible
     showMap();
@@ -938,23 +944,9 @@ $(window).on('load', function() {
    */
   function changeAttribution() {
     var attributionHTML = $('.leaflet-control-attribution')[0].innerHTML;
-    var credit = 'View <a href="' + googleDocURL + '" target="_blank">data</a>';
-    var name = getSetting('_authorName');
-    var url = getSetting('_authorURL');
 
-    if (name && url) {
-      if (url.indexOf('@') > 0) { url = 'mailto:' + url; }
-      credit += ' by <a href="' + url + '">' + name + '</a> | ';
-    } else if (name) {
-      credit += ' by ' + name + ' | ';
-    } else {
-      credit += ' | ';
-    }
-
-    credit += 'View <a href="' + getSetting('_githubRepo') + '">code</a>';
-    if (getSetting('_codeCredit')) credit += ' by ' + getSetting('_codeCredit');
-    credit += ' with ';
-    $('.leaflet-control-attribution')[0].innerHTML = credit + attributionHTML;
+    'View <a href="' + getSetting('_githubRepo') + '">code</a>';
+    $('.leaflet-control-attribution')[0].innerHTML = attributionHTML;
   }
 
 
@@ -989,17 +981,19 @@ $(window).on('load', function() {
     L.control.watermark = function(opts) {
       return new L.Control.Watermark(opts);
     }
-    L.control.watermark({ position: 'bottomleft' }).addTo(map);
+    L.control.watermark({ position: 'topright' }).addTo(map);
   }
 
   /**
   * Adds a button
-  */
+
   function addButton() {
     L.easyButton('fa-gift', function(){
     window.location.href = NEW_DOCS_LOCATION;
     }).addTo(map);
   }
+  */
+
   /**
    * Returns the value of a setting s
    * getSetting(s) is equivalent to documentSettings[constants.s]
