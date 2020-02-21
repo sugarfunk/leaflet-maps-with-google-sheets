@@ -199,11 +199,16 @@ $(window).on('load', function() {
         ? 'topleft'
         : getSetting('_pointsLegendPos');
 
-      var pointsLegend = L.control.layers(null, layers, {
-        collapsed: false,
-        position: pos,
-      });
-
+      if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+          var pointsLegend = L.control.layers(null, layers, {
+            collapsed: true,
+            position: 'topright',
+        });} else {
+          var pointsLegend = L.control.layers(null, layers, {
+            collapsed: true,
+            position: pos,
+        });
+      }
       if (getSetting('_pointsLegendPos') !== 'off') {
         //console.log(pointsLegend)
         pointsLegend.addTo(map);
@@ -773,7 +778,7 @@ $(window).on('load', function() {
         });
 
         $('.ladder h6').get(0).click();
-
+;
         $('#map').css('visibility', 'visible');
         $('.loader').hide();
 

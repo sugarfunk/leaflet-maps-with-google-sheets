@@ -273,6 +273,10 @@ span.legend-icon {
   margin-right: 5px;
 }
 
+.leaflet-control-layers-toggle{
+  background-image: none;
+}
+
 .ladder {
   width: 180px;
   margin-top: 0 !important;
