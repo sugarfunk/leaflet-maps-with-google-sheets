@@ -153,7 +153,7 @@ form {
     display: none;
   }
 
-  .leaflet-left{
+  .leaflet-left .leaflet-control{
     width: 50%;
   }
 
