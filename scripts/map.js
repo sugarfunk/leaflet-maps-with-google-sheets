@@ -179,7 +179,8 @@ $(window).on('load', function() {
     	     zoomToBoundsOnClick: true,
            spiderfyDistanceMultiplier: 5,
            removeOutsideVisibleBounds:true,
-           animate: true
+           animate: true,
+           maxClusterRadius: 20,
          });
         multilayerClusterSupport.addTo(map);
 
