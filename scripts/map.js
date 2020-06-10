@@ -211,7 +211,7 @@ $(window).on('load', function() {
       }
 */
       var pointsLegend = L.control.layers(null, layers, {
-          collapsed: true,
+          collapsed: false,
           position: pos,
       });
 
