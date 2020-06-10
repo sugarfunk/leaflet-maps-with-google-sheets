@@ -153,9 +153,10 @@ form {
     display: none;
   }
 
-  .leaflet-left .map-title {
+  .leaflet-top .leaflet-left {
     width: 50%;
   }
+
 }
 
 #mobile-intro-popup {
