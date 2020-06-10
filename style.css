@@ -150,8 +150,7 @@ form {
 
 @media only screen and (max-width: 760px) {
   .leaflet-right .map-title {
-    display: block;
-    opacity: 0;
+    display: none;
   }
 
   .leaflet-left .map-title {
@@ -271,6 +270,10 @@ span.legend-arrow {
 span.legend-icon {
   color: #bbb;
   margin-right: 5px;
+}
+
+.leaflet-control-layers-toggle{
+  background-image: none !important;
 }
 
 .ladder {
