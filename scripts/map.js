@@ -131,13 +131,13 @@ $(window).on('load', function() {
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           "<b>Region:</b>" + point['Region'] + "<br>" + point['Description']);
 
-		marker.on('mouseover', function (e) {
-		this.openPopup();
-		});
-		marker.on('click', function (e) {
-		this.closePopup();
+//		marker.on('mouseover', function (e) {
+//		this.openPopup();
+//		});
+//		marker.on('click', function (e) {
+//		this.closePopup();
 			//disable mouseout behavior here?
-		});
+//		});
 
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
