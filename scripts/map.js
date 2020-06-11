@@ -255,6 +255,7 @@ $(window).on('load', function() {
       map.on('moveend', updateTable);
       map.on('layeradd', updateTable);
       map.on('layerremove', updateTable);
+      map.on('moveend', updateGeocoderBounds);
 
       // Clear table data and add only visible markers to it
       function updateTable() {
@@ -715,7 +716,7 @@ $(window).on('load', function() {
       }
 
       // Update search viewbox coordinates every time the map moves
-      map.on('moveend', console.log('moveend fired.')); //updateGeocoderBounds);
+      map.on('moveend', updateGeocoderBounds);
     }
 
     // Add location control
