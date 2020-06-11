@@ -177,7 +177,7 @@ $(window).on('load', function() {
     	     spiderfyOnMaxZoom: true,
     	     showCoverageOnHover: true,
     	     zoomToBoundsOnClick: true,
-           spiderfyDistanceMultiplier: 5,
+           spiderfyDistanceMultiplier: 2,
            removeOutsideVisibleBounds:true,
            animate: true,
            maxClusterRadius: 50,
