@@ -160,7 +160,7 @@ $(window).on('load', function() {
 	     spiderfyOnMaxZoom: true,
 	     showCoverageOnHover: false,
 	     zoomToBoundsOnClick: true,
-             maxClusterRadius: 20,
+       maxClusterRadius: 10,
      });
 
     // if layers.length === 0, add points to map instead of layer
@@ -180,7 +180,7 @@ $(window).on('load', function() {
            spiderfyDistanceMultiplier: 5,
            removeOutsideVisibleBounds:true,
            animate: true,
-           maxClusterRadius: 20,
+           maxClusterRadius: 10,
          });
         multilayerClusterSupport.addTo(map);
 
@@ -715,7 +715,7 @@ $(window).on('load', function() {
       }
 
       // Update search viewbox coordinates every time the map moves
-      map.on('moveend', updateGeocoderBounds);
+      map.on('moveend', console.log('moveend fired.')); //updateGeocoderBounds);
     }
 
     // Add location control
