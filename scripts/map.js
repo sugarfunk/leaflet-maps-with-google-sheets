@@ -716,7 +716,8 @@ $(window).on('load', function() {
       }
 
       // Update search viewbox coordinates every time the map moves
-      map.on('moveend', updateGeocoderBounds);
+      //!!Commented out the below. It worked, but was causing OpenMap to error. Guessing it was used to search in window
+      //map.on('moveend', updateGeocoderBounds);
     }
 
     // Add location control
