@@ -160,7 +160,7 @@ $(window).on('load', function() {
 	     spiderfyOnMaxZoom: true,
 	     showCoverageOnHover: false,
 	     zoomToBoundsOnClick: true,
-       maxClusterRadius: 10,
+       maxClusterRadius: 30,
      });
 
     // if layers.length === 0, add points to map instead of layer
@@ -180,7 +180,7 @@ $(window).on('load', function() {
            spiderfyDistanceMultiplier: 5,
            removeOutsideVisibleBounds:true,
            animate: true,
-           maxClusterRadius: 10,
+           maxClusterRadius: 30,
          });
         multilayerClusterSupport.addTo(map);
 
