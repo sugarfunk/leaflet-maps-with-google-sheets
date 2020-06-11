@@ -255,7 +255,6 @@ $(window).on('load', function() {
       map.on('moveend', updateTable);
       map.on('layeradd', updateTable);
       map.on('layerremove', updateTable);
-      map.on('moveend', updateGeocoderBounds);
 
       // Clear table data and add only visible markers to it
       function updateTable() {
