@@ -712,6 +712,7 @@ $(window).on('load', function() {
           bounds._southWest.lng, bounds._northEast.lng,
         ];
         geocoder.options.geocoder.options.geocodingQueryParams.viewbox = mapBounds;
+        window.alert(mapBounds);
       }
 
       // Update search viewbox coordinates every time the map moves
