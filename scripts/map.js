@@ -701,6 +701,7 @@ $(window).on('load', function() {
           geocodingQueryParams: {
             viewbox: [],  // by default, viewbox is empty
             bounded: 0,
+            countrycodes: "us",
           }
         }),
       }).addTo(map);
