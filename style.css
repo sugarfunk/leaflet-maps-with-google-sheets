@@ -71,8 +71,10 @@ form {
 }
 
 .leaflet-popup-content img {
-  width: 100%;
-  margin: 5px 0 5px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .geojson-point-marker {
