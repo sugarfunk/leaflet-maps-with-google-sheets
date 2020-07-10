@@ -747,10 +747,9 @@ $(window).on('load', function() {
     // Append icons to categories in markers legend
     $('#points-legend form label span').each(function(i) {
 	//testing something
-      var x = markerColors[i];
-      switch (x) {
+      switch (markerColors[i]) {
   	case "media/shovel_flag_yellow.png":
-    	  var bdClass = "thursday-markers-legend-icon"
+    	  var bdClass = "thursday-markers-legend-icon";
     	  break;
   	case "media/shovel_flag_red.png":
     	  var bdClass = "saturday-markers-legend-icon";
