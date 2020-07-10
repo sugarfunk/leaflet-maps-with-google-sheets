@@ -746,8 +746,21 @@ $(window).on('load', function() {
 
     // Append icons to categories in markers legend
     $('#points-legend form label span').each(function(i) {
+	//testing something
+      var x = markerColors[i];
+      switch (x) {
+  	case "media/shovel_flag_yellow.png":
+    	  var bdClass = "thursday-markers-legend-icon"
+    	  break;
+  	case "media/shovel_flag_red.png":
+    	  var bdClass = "saturday-markers-legend-icon";
+    	  break;
+  	default:
+    	  var bdClass = "markers-legend-icon";
+      } 
+	  // end test
       var legendIcon = (markerColors[i].indexOf('.') > 0)
-        ? '<img src="' + markerColors[i] + '" class="markers-legend-icon">'
+        ? '<img src="' + markerColors[i] + '" class="' + bdClass + '>'
         : '&nbsp;<i class="fa fa-map-marker" style="color: '
           + markerColors[i]
           + '"></i>';
