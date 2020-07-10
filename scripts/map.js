@@ -748,7 +748,6 @@ $(window).on('load', function() {
     $('#points-legend form label span').each(function(i) {
 	//testing something
       var x = markerColors[i];
-	    alert(markerColors[i]);
       switch (x) {
   	case "media/shovel_flag_yellow.png":
     	  var bdClass = "thursday-markers-legend-icon"
