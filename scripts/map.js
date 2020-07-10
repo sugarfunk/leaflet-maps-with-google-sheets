@@ -40,7 +40,7 @@ $(window).on('load', function() {
     if (Object.keys(params).length !== 0){
         if (params.lat !== 'undefined') {
           console.log("I did it.");
-          lat = parseInt(params.lat);
+          lat = params.lat;
           console.log(Object.prototype.toString.call(lat));
           latSet = true;
         }
