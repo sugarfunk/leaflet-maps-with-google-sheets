@@ -75,19 +75,30 @@ $(window).on('load', function() {
    * column in the spreadsheet.
    */
   function determineLayers(points) {
-    var layerNamesFromSpreadsheet = [];
+    var layerNamesFromSpreadsheet = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Other"];
+    var markerColors = ["media/shovel_flag_red.png","media/shovel_flag_purple.png","media/shovel_flag_yellow.png","media/shovel_flag_cadetblue.png","media/shovel_flag_green.png","media/shovel_flag_blue.png","media/shovel_flag_orange.png","media/shovel_flag_brown.png"];
     var layers = {};
-    for (var i in points) {
-      var pointLayerNameFromSpreadsheet = points[i].Group;
-      if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
-        markerColors.push(
-          points[i]['Marker Icon'].indexOf('.') > 0
-          ? points[i]['Marker Icon']
-          : points[i]['Marker Color']
-        );
-        layerNamesFromSpreadsheet.push(pointLayerNameFromSpreadsheet);
+    for (var i in layerNamesFromSpreadsheet) {
+        var layerNameFromSpreadsheet = layerNamesFromSpreadsheet[i];
+        layers[layerNameFromSpreadsheet] = L.layerGroup();
+        layers[layerNameFromSpreadsheet].addTo(map);
       }
-    }
+    return layers;
+  }	
+//  function determineLayers(points) {
+//    var layerNamesFromSpreadsheet = [];
+//    var layers = {};
+//    for (var i in points) {
+//      var pointLayerNameFromSpreadsheet = points[i].Group;
+//      if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
+//       markerColors.push(
+//          points[i]['Marker Icon'].indexOf('.') > 0
+//         ? points[i]['Marker Icon']
+//          : points[i]['Marker Color']
+//        );
+//        layerNamesFromSpreadsheet.push(pointLayerNameFromSpreadsheet);
+//      }
+//    }
 
     // if none of the points have named layers or if there was only one name, return no layers
     if (layerNamesFromSpreadsheet.length === 1) {
