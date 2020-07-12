@@ -69,7 +69,14 @@ $(window).on('load', function() {
     map.setView(center, zoom);
   }
 
-
+   /**
+   * Sort days of week into proper order. 
+   */
+  function daysOfWeekSorter(x,y) {
+    var daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Other"];
+    return daysOfWeek.indexOf(x)-daysOfWeek.indexOf(y);
+  }
+	
   /**
    * Given a collection of points, determines the layers based on 'Group'
    * column in the spreadsheet.
@@ -86,6 +93,8 @@ $(window).on('load', function() {
          ? points[i]['Marker Icon']
           : points[i]['Marker Color']
         );
+	// Sort layer names to match standard week
+        layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
         layerNamesFromSpreadsheet.push(pointLayerNameFromSpreadsheet);
       }
     }
