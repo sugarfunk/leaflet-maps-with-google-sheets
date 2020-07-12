@@ -73,7 +73,7 @@ $(window).on('load', function() {
    * Sort days of week into proper order. 
    */
   function daysOfWeekSorter(x,y) {
-    var daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Other"];
+    var daysOfWeek = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Other"];
     return daysOfWeek.indexOf(x)-daysOfWeek.indexOf(y);
   }
 	
