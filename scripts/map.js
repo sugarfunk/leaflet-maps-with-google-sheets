@@ -87,14 +87,15 @@ $(window).on('load', function() {
     var layers = {};
     for (var i in points) {
       var pointLayerNameFromSpreadsheet = points[i].Group;
-      if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
-       markerColors.push(
+      
+	// Sort layer names to match standard week
+        layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
+	if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
+         markerColors.push(
           points[i]['Marker Icon'].indexOf('.') > 0
          ? points[i]['Marker Icon']
           : points[i]['Marker Color']
         );
-	// Sort layer names to match standard week
-        layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
         layerNamesFromSpreadsheet.push(pointLayerNameFromSpreadsheet);
       }
     }
