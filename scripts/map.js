@@ -70,13 +70,13 @@ $(window).on('load', function() {
   }
 
    /**
-   * Sort days of week into proper order. 
+   * Sort days of week into proper order.
    */
   function daysOfWeekSorter(x,y) {
     var daysOfWeek = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Other"];
     return daysOfWeek.indexOf(x)-daysOfWeek.indexOf(y);
   }
-	
+
   /**
    * Given a collection of points, determines the layers based on 'Group'
    * column in the spreadsheet.
@@ -94,7 +94,7 @@ $(window).on('load', function() {
           : points[i]['Marker Color']
         );
 	// Sort layer names to match standard week
-        layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
+        //layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
         layerNamesFromSpreadsheet.push(pointLayerNameFromSpreadsheet);
       }
     }
