@@ -94,7 +94,7 @@ $(window).on('load', function() {
           : points[i]['Marker Color']
         );
 	// Sort layer names to match standard week
-        //layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
+        layerNamesFromSpreadsheet.sort(daysOfWeekSorter);
         layerNamesFromSpreadsheet.push(pointLayerNameFromSpreadsheet);
       }
     }
@@ -756,6 +756,8 @@ $(window).on('load', function() {
 
     // Change Map attribution to include author's info + urls
     changeAttribution();
+
+    var markerColors = ["media/shovel_flag_cadetblue.png","media/shovel_flag_green.png","media/shovel_flag_purple.png","media/shovel_flag_yellow.png","media/shovel_flag_blue.png","media/shovel_flag_red.png","media/shovel_flag_orange.png","media/shovel_flag_brown.png"];
 
     // Append icons to categories in markers legend
     $('#points-legend form label span').each(function(i) {
