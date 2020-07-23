@@ -734,11 +734,14 @@ $(window).on('load', function() {
     // Add location control
     if (getSetting('_mapMyLocation') !== 'off') {
       var locationControl = L.control.locate({
-        keepCurrentZoomLevel: true,
         returnToPrevBounds: true,
+        initialZoomLevel: 8,
+        flyTo: true,
         position: getSetting('_mapMyLocation')
       }).addTo(map);
     }
+
+    locationControl.start();
 
     // Add zoom control
     if (getSetting('_mapZoom') !== 'off') {
