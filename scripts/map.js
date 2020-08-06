@@ -39,9 +39,7 @@ $(window).on('load', function() {
 
     if (Object.keys(params).length !== 0){
         if (params.lat !== 'undefined') {
-          console.log("I did it.");
           lat = params.lat;
-          console.log(Object.prototype.toString.call(lat));
           latSet = true;
         }
 
@@ -658,6 +656,10 @@ $(window).on('load', function() {
    * Here all data processing from the spreadsheet happens
    */
   function onMapDataLoad() {
+    var params = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+      params[key] = value;
+    });
     var options = mapData.sheets(constants.optionsSheetName).elements;
     createDocumentSettings(options);
 
@@ -741,7 +743,9 @@ $(window).on('load', function() {
       }).addTo(map);
     }
 
-    locationControl.start();
+    if (params.auto === 'yes') {
+      locationControl.start();
+    }
 
     // Add zoom control
     if (getSetting('_mapZoom') !== 'off') {
