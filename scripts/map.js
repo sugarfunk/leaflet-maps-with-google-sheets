@@ -37,7 +37,7 @@ $(window).on('load', function() {
       params[key] = value;
     });
 
-    if (Object.keys(params).length !== 0){
+    if (Object.keys(params).length > 1){
         if (params.lat !== 'undefined') {
           lat = params.lat;
           latSet = true;
